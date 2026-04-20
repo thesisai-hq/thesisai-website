@@ -3,6 +3,7 @@ import WaitlistForm from './components/WaitlistForm';
 import AppMockup from './components/AppMockup';
 import HowItWorks from './components/HowItWorks';
 import RevealObserver from './components/RevealObserver';
+import SiteNav from './components/SiteNav';
 
 const features = [
   {
@@ -60,34 +61,161 @@ export default function MarketingPage() {
       {/* Scroll-reveal observer — client component, no visible output */}
       <RevealObserver />
 
-      {/* ── Header ────────────────────────────────── */}
-      <header className="topbar section-wrap">
-        <div className="brand">
-          <img
-            src="/branding/Light mode-Thesis AI Logo - transparent.png"
-            alt="Thesis AI logo"
-            className="brand-logo"
-          />
-          <span>Thesis AI</span>
+      {/* ── Navigation ────────────────────────────── */}
+      <SiteNav />
+
+      {/* ── Company Intro ─────────────────────────── */}
+      <section className="section-wrap" style={{ paddingTop: '4rem', paddingBottom: '1rem' }}>
+        <div style={{ maxWidth: '560px' }}>
+          <p className="eyebrow">Thesis AI</p>
+          <h2 style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.8rem)', marginBottom: '0.7rem' }}>
+            Tools for serious investors.
+          </h2>
+          <p className="subline" style={{ marginTop: 0 }}>
+            We combine AI and behavioral finance to help you research smarter and invest consistently.
+          </p>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <a href="/dashboard" style={{
-            fontSize: '0.875rem',
+
+        {/* Products Grid */}
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '1rem',
+            marginTop: '2.5rem',
+          }}
+        >
+          {/* Thesis AI Platform card */}
+          <div
+            style={{
+              background: 'var(--bg-soft)',
+              border: '1px solid var(--border)',
+              borderRadius: '1.1rem',
+              padding: '1.5rem',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.75rem',
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+              <span
+                style={{
+                  fontSize: '0.68rem',
+                  fontWeight: 700,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.1em',
+                  padding: '3px 10px',
+                  borderRadius: '999px',
+                  background: 'var(--accent-soft)',
+                  border: '1px solid rgba(59,158,255,0.3)',
+                  color: 'var(--accent)',
+                }}
+              >
+                In Beta
+              </span>
+            </div>
+            <div>
+              <h3 style={{ fontSize: '1.15rem', marginBottom: '0.4rem' }}>Thesis AI Platform</h3>
+              <p style={{ color: 'var(--muted)', fontSize: '0.9rem', margin: 0, lineHeight: 1.5 }}>
+                AI-powered investment research with multi-agent synthesis — macro, fundamentals, news, and price action in one clear thesis.
+              </p>
+            </div>
+            <a
+              href="#waitlist"
+              className="ghost"
+              style={{
+                display: 'inline-flex',
+                alignSelf: 'flex-start',
+                marginTop: 'auto',
+                fontSize: '0.85rem',
+                padding: '0.55rem 1rem',
+                borderRadius: '8px',
+              }}
+            >
+              Request Access →
+            </a>
+          </div>
+
+          {/* Long Hold card */}
+          <div
+            style={{
+              background: 'var(--bg-soft)',
+              border: '1px solid var(--border)',
+              borderRadius: '1.1rem',
+              padding: '1.5rem',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.75rem',
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+              <span
+                style={{
+                  fontSize: '0.68rem',
+                  fontWeight: 700,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.1em',
+                  padding: '3px 10px',
+                  borderRadius: '999px',
+                  background: 'rgba(45,180,141,0.12)',
+                  border: '1px solid rgba(45,180,141,0.35)',
+                  color: '#2db48d',
+                }}
+              >
+                Available on iOS
+              </span>
+            </div>
+            <div>
+              <h3 style={{ fontSize: '1.15rem', marginBottom: '0.4rem' }}>Long Hold</h3>
+              <p style={{ color: 'var(--muted)', fontSize: '0.9rem', margin: 0, lineHeight: 1.5 }}>
+                Track contributions, build streaks, and visualize long-term compound growth. Built for consistent, disciplined investors.
+              </p>
+            </div>
+            <a
+              href="/long-hold"
+              className="ghost"
+              style={{
+                display: 'inline-flex',
+                alignSelf: 'flex-start',
+                marginTop: 'auto',
+                fontSize: '0.85rem',
+                padding: '0.55rem 1rem',
+                borderRadius: '8px',
+              }}
+            >
+              Learn More →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Platform Divider ──────────────────────── */}
+      <div
+        id="platform"
+        className="section-wrap"
+        style={{
+          paddingTop: '3rem',
+          paddingBottom: '0.5rem',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '1rem',
+        }}
+      >
+        <div style={{ flex: 1, height: '1px', background: 'var(--glass-border)' }} />
+        <span
+          style={{
+            fontSize: '0.7rem',
             fontWeight: 600,
-            color: 'var(--accent)',
-            textDecoration: 'none',
-            padding: '7px 16px',
-            border: '1px solid rgba(59,158,255,0.4)',
-            borderRadius: '8px',
-            transition: 'background 0.15s',
-          }}>
-            Dashboard →
-          </a>
-          <TrackedLink className="cta cta-small" href="#waitlist" eventName="cta_topbar_click">
-            Request iOS Access
-          </TrackedLink>
-        </div>
-      </header>
+            textTransform: 'uppercase',
+            letterSpacing: '0.15em',
+            color: 'var(--muted)',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          Thesis AI Platform
+        </span>
+        <div style={{ flex: 1, height: '1px', background: 'var(--glass-border)' }} />
+      </div>
 
       {/* ── Hero ──────────────────────────────────── */}
       <section className="hero section-wrap" id="top">
