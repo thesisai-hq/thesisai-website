@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { PriceChart } from '../../../../components/PriceChart';
 import type { SnapshotData } from '../../../../lib/api/market';
@@ -12,7 +12,7 @@ import type { AlertRule } from '../../../../lib/api/alerts';
 import { getAlerts, setAlert, deleteAlert } from '../../../../lib/api/alerts';
 
 interface PageProps {
-  params: { symbol: string };
+  params: Promise<{ symbol: string }>;
 }
 
 type RangeKey = '1D' | '1W' | '1M' | '1Y';
@@ -59,7 +59,8 @@ function deriveScore(data: AiContextResponse): number {
 }
 
 export default function StockDetailPage({ params }: PageProps) {
-  const symbol = params.symbol.toUpperCase();
+  const { symbol: rawSymbol } = use(params);
+  const symbol = rawSymbol.toUpperCase();
   const router = useRouter();
 
   const [snap, setSnap] = useState<SnapshotData | null>(null);
