@@ -1,18 +1,10 @@
 # Thesis AI Website
 
-Marketing and product website for [thesisai.app](https://thesisai.app).
-
-## Structure
-
-```
-thesisai-website/
-└── web/          # Next.js 14 app (App Router, TypeScript, Tailwind)
-```
+Marketing and product website for [thesisai.app](https://thesisai.app). Built with Next.js 14, TypeScript, and Tailwind CSS.
 
 ## Development
 
 ```bash
-cd web
 npm install
 npm run dev
 ```
