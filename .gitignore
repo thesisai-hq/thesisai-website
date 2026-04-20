@@ -1,3 +1,6 @@
+# Next.js app (managed separately)
+web/
+
 # OS
 .DS_Store
 Thumbs.db
