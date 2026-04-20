@@ -25,7 +25,6 @@ const securityHeaders = [
 
 const nextConfig = {
   reactStrictMode: true,
-  transpilePackages: ['@thesis-ai/api-types'],
   async headers() {
     return [
       {
