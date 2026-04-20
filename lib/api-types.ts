@@ -8,6 +8,7 @@
 
 export interface AuthResponse {
   access_token: string;
+  token: string;
   token_type: string;
   user: { id: string; email: string; created_at: string };
 }
@@ -94,29 +95,34 @@ export interface MoveAction {
 }
 
 export interface TodayMove {
-  id: string;
-  symbol: string;
+  ticker: string;
   title: string;
-  rationale: string;
+  why: string;
   confidence: number;
-  actions: MoveAction[];
-  created_at: string;
+  signals: string[];
+  cta?: MoveAction[];
+  price: number;
+  change_percent: number;
 }
 
 export interface MovesTodayResponse {
+  as_of: string;
+  regime: string;
+  provider: string;
   moves: TodayMove[];
-  generated_at: string;
 }
 
 // ── Insights ──────────────────────────────────────────────────────────────────
 
 export interface InsightRead {
   id: string;
+  user_id?: string;
   symbol: string;
   title: string;
   body: string;
+  signals?: string[];
+  action?: string;
   confidence: number;
-  sentiment: string;
   created_at: string;
   read_at: string | null;
 }
@@ -137,7 +143,7 @@ export interface MacroSnapshot {
     fed_funds_rate: number;
     unemployment: number;
     gdp_growth: number;
-  };
+  } | null;
   as_of: string;
   provider: string;
 }
@@ -154,10 +160,13 @@ export interface SnapshotData {
 export interface TickerOverview {
   symbol: string;
   name: string;
+  market?: string;
+  locale?: string;
+  active?: boolean;
   sector?: string;
   industry?: string;
   description?: string;
-  market_cap?: number;
+  market_cap?: number | null;
   pe_ratio?: number;
   week_52_high?: number;
   week_52_low?: number;
@@ -167,10 +176,18 @@ export interface TickerOverview {
 
 export interface MarketFundamentals {
   symbol: string;
+  company_name?: string;
+  sector?: string;
+  industry?: string;
+  market_cap?: number | null;
+  pe_ratio?: number | null;
+  eps?: number | null;
+  dividend_yield?: number | null;
+  shares_outstanding?: number | null;
+  updated_at?: string;
   revenue_ttm?: number;
   net_income_ttm?: number;
   eps_ttm?: number;
-  pe_ratio?: number;
   pb_ratio?: number;
   debt_to_equity?: number;
   roe?: number;
@@ -179,12 +196,13 @@ export interface MarketFundamentals {
 
 export interface MarketNewsItem {
   id: string;
-  headline: string;
+  title: string;
+  headline?: string;
   summary: string;
   url: string;
   source: string;
   published_at: string;
-  symbols: string[];
+  symbols?: string[];
   sentiment?: string;
 }
 
@@ -195,25 +213,32 @@ export interface MarketNewsResponse {
 }
 
 export interface MarketMover {
-  symbol: string;
-  name: string;
+  ticker: string;
   price: number;
   change_percent: number;
+  name?: string;
   volume?: number;
 }
 
 export interface MarketMoversResponse {
   direction: string;
-  items: MarketMover[];
-  as_of: string;
+  count?: number;
+  tickers?: MarketMover[];
+  items?: MarketMover[];
+  as_of?: string;
   provider: string;
 }
 
 export interface MarketStatusResponse {
-  is_open: boolean;
+  market?: string;
+  server_time?: string;
+  after_hours?: boolean;
+  early_hours?: boolean;
+  exchanges?: Record<string, string>;
+  is_open?: boolean;
   next_open?: string;
   next_close?: string;
-  session: string;
+  session?: string;
   provider: string;
 }
 
@@ -234,18 +259,22 @@ export interface MarketFinancialsResponse {
 
 export interface NewsFeedItem {
   id: string;
-  headline: string;
+  title: string;
+  headline?: string;
   summary: string;
   url: string;
   source: string;
   published_at: string;
   symbols: string[];
+  channel?: string | null;
   sentiment?: string;
 }
 
 export interface NewsFeedResponse {
   items: NewsFeedItem[];
-  next_cursor?: string;
+  next_cursor: string | null;
+  provider?: string;
+  as_of?: string;
   total?: number;
 }
 
@@ -256,6 +285,7 @@ export interface HoldingRead {
   symbol: string;
   quantity: number;
   avg_cost: number;
+  created_at: string;
   current_price?: number;
   current_value?: number;
   total_return?: number;
@@ -271,31 +301,44 @@ export interface PortfolioRead {
 }
 
 export interface PortfolioAnalytics {
-  total_value: number;
-  total_cost: number;
-  total_return: number;
-  total_return_percent: number;
-  daily_change: number;
-  daily_change_percent: number;
+  beta: number;
+  sharpe: number;
+  volatility: number;
+  max_drawdown: number;
+  correlation_sp500: number;
+  correlation_nasdaq: number;
+  sector_exposure: { sector: string; weight: number }[];
+  factor_exposure: { factor: string; score: number }[];
 }
 
 export interface HoldingSnapshot {
   symbol: string;
   quantity: number;
   avg_cost: number;
-  current_price: number;
-  current_value: number;
-  total_return: number;
-  total_return_percent: number;
-  weight: number;
+  cost_basis: number;
+  current_price: number | null;
+  current_value: number | null;
+  unrealized_pnl: number | null;
+  unrealized_pnl_pct: number | null;
+  change_today: number | null;
+  change_today_pct: number | null;
 }
 
 export interface PortfolioSnapshotResponse {
   portfolio_id: string;
   portfolio_name: string;
-  as_of: string;
-  analytics: PortfolioAnalytics;
   holdings: HoldingSnapshot[];
+  total_value: number;
+  total_cost: number;
+  unrealized_pnl: number;
+  unrealized_pnl_pct: number;
+  daily_change: number;
+  daily_change_pct: number;
+  top_gainer: string | null;
+  top_loser: string | null;
+  as_of: string;
+  stale: boolean;
+  provider: string;
 }
 
 // ── Preferences ───────────────────────────────────────────────────────────────
@@ -306,6 +349,11 @@ export interface UserPreferences {
   notifications_enabled?: boolean;
   brief_time?: string;
   risk_profile?: 'conservative' | 'moderate' | 'aggressive';
+  risk_tolerance: 'conservative' | 'moderate' | 'aggressive' | null;
+  experience_level: 'beginner' | 'intermediate' | 'advanced' | null;
+  trading_frequency: 'daily' | 'weekly' | 'monthly' | 'rarely' | null;
+  goals: string[];
+  interests: string[];
 }
 
 // ── AI / Conversations ────────────────────────────────────────────────────────
@@ -334,35 +382,37 @@ export interface AiChatResponse {
 }
 
 export interface AgentResult {
-  agent: string;
+  name: string;
   summary: string;
-  confidence?: number;
-  signals?: string[];
+  confidence: number;
+  signals: string[];
   citations?: AiCitation[];
 }
 
 export interface AgentBundle {
   symbols: string[];
-  agents: AgentResult[];
+  generated_at?: string;
+  results: AgentResult[];
   synthesized_thesis?: string;
   overall_confidence?: number;
 }
 
 export interface AiContextResponse {
-  agents: AgentBundle | null;
+  context: string;
   context_summary?: string;
+  agents: AgentBundle | null;
   generated_at?: string;
 }
 
 export interface AiThesisCard {
   symbol: string;
-  thesis: string;
-  bull_case: string;
-  bear_case: string;
-  confidence: number;
-  sentiment: string;
-  action: string;
+  headline: string;
+  summary: string;
+  signals: string[];
+  price: number;
+  change_percent: number;
   generated_at: string;
+  action?: string;
 }
 
 export interface AiThesisCardsResponse {
@@ -400,6 +450,7 @@ export interface ChatMessageItem {
 
 export interface ConversationMessagesResponse {
   conversation_id: string;
+  messages: ChatMessageItem[];
   items: ChatMessageItem[];
   total: number;
 }
