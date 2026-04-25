@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import posthog from 'posthog-js';
 import { useAuth } from '../../../context/AuthContext';
 // (auth) group — no sidebar/header wrapper
 
@@ -20,9 +21,12 @@ export default function SignInPage() {
     if (!password) { setError('Password is required'); return; }
     try {
       await signIn(email, password);
+      posthog.identify(email.trim().toLowerCase(), { email: email.trim().toLowerCase() });
+      posthog.capture('user_signed_in', { email: email.trim().toLowerCase(), method: 'email' });
       router.replace('/dashboard');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Sign in failed');
+      posthog.captureException(err);
     }
   }
 
@@ -74,7 +78,7 @@ export default function SignInPage() {
         <button
           className="auth-guest-btn"
           type="button"
-          onClick={() => { signInAsGuest(); router.replace('/dashboard'); }}
+          onClick={() => { signInAsGuest(); posthog.capture('user_signed_in', { method: 'guest' }); router.replace('/dashboard'); }}
         >
           Continue as Guest
         </button>

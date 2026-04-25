@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import posthog from 'posthog-js';
 import type { UserPreferences } from '../../../lib/api/preferences';
 import { updatePreferences } from '../../../lib/api/preferences';
 
@@ -252,6 +253,13 @@ export default function OnboardingPage() {
         risk_tolerance: risk ? riskMap[risk] : null,
         experience_level: experience ? expMap[experience] : null,
         trading_frequency: frequency ? freqMap[frequency] : null,
+        goals,
+        interests,
+      });
+      posthog.capture('onboarding_completed', {
+        experience_level: experience,
+        risk_tolerance: risk,
+        trading_frequency: frequency,
         goals,
         interests,
       });

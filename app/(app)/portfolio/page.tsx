@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import posthog from 'posthog-js';
 import { useAuth } from '../../../context/AuthContext';
 import { PortfolioTable } from '../../../components/PortfolioTable';
 import { PortfolioAnalyticsPanel } from '../../../components/PortfolioAnalyticsPanel';
@@ -97,6 +98,7 @@ export default function PortfolioPage() {
     setCreating(true);
     try {
       const created = await createPortfolio(user.id, newPortfolioName.trim());
+      posthog.capture('portfolio_created', { portfolio_name: newPortfolioName.trim() });
       setPortfolioCrud((prev) => [...prev, created]);
       setShowNewPortfolio(false);
       setNewPortfolioName('');
@@ -121,6 +123,12 @@ export default function PortfolioPage() {
         parseFloat(holdingQty),
         parseFloat(holdingCost)
       );
+      posthog.capture('portfolio_holding_added', {
+        symbol: holdingSymbol.trim().toUpperCase(),
+        quantity: parseFloat(holdingQty),
+        avg_cost: parseFloat(holdingCost),
+        portfolio_id: addHoldingPortfolioId,
+      });
       setPortfolioCrud((prev) =>
         prev.map((p) =>
           p.id === addHoldingPortfolioId ? { ...p, holdings: [...p.holdings, holding] } : p

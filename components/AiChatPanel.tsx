@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import posthog from 'posthog-js';
 import type { AiMessage } from '../lib/api/ai';
 import { streamChat } from '../lib/api/ai';
 import type { ChatMessageItem } from '../lib/api/conversations';
@@ -55,6 +56,11 @@ export function AiChatPanel({
     setStreaming(true);
 
     const activeSymbols = symbols?.filter((s) => !dismissedSymbols.has(s)) ?? [];
+    posthog.capture('ai_message_sent', {
+      message_length: text.length,
+      symbol_context: activeSymbols,
+      conversation_id: conversationId,
+    });
 
     try {
       const history: AiMessage[] = messages.map((m) => ({

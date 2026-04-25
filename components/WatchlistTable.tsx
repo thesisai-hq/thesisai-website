@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import posthog from 'posthog-js';
 import type { Watchlist } from '../lib/api/watchlist';
 import { addSymbol, removeSymbol } from '../lib/api/watchlist';
 import type { WatchlistHighlight } from '../lib/api/dashboard';
@@ -49,6 +50,7 @@ export function WatchlistTable({ watchlist, highlights, onRefresh }: WatchlistTa
     try {
       await addSymbol(watchlist.id, sym);
       setNewSymbol('');
+      posthog.capture('watchlist_symbol_added', { symbol: sym, watchlist_id: watchlist.id });
       onRefresh();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to add symbol');
@@ -58,8 +60,10 @@ export function WatchlistTable({ watchlist, highlights, onRefresh }: WatchlistTa
   }
 
   async function handleRemove(itemId: string) {
+    const item = watchlist.items.find((i) => i.id === itemId);
     try {
       await removeSymbol(watchlist.id, itemId);
+      posthog.capture('watchlist_symbol_removed', { symbol: item?.symbol, watchlist_id: watchlist.id });
       onRefresh();
     } catch {
       // ignore

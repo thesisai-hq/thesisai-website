@@ -2,6 +2,7 @@
 
 import { use, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import posthog from 'posthog-js';
 import { PriceChart } from '../../../../components/PriceChart';
 import type { SnapshotData } from '../../../../lib/api/market';
 import { getSnapshots, getMarketBars } from '../../../../lib/api/market';
@@ -106,6 +107,7 @@ export default function StockDetailPage({ params }: PageProps) {
         setAlerts(alertData);
       } catch { /* ok */ }
 
+      posthog.capture('stock_viewed', { symbol });
       setLoading(false);
     }
     void load();
@@ -128,6 +130,7 @@ export default function StockDetailPage({ params }: PageProps) {
     setAlertSaving(true);
     try {
       const alert = await setAlert(symbol, threshold);
+      posthog.capture('price_alert_set', { symbol, threshold });
       setAlerts((prev) => [...prev, alert]);
       setAlertThreshold('');
       setShowAlertForm(false);

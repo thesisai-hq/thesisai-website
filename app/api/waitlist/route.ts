@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { getPostHogClient } from '../../../lib/posthog-server';
 
 export const runtime = 'nodejs';
 
@@ -53,6 +54,13 @@ export async function POST(request: NextRequest) {
     const errorText = await response.text();
     return NextResponse.json({ error: errorText || 'Failed to save' }, { status: 500 });
   }
+
+  const phog = getPostHogClient();
+  phog.capture({
+    distinctId: email,
+    event: 'waitlist_api_signup',
+    properties: { name, email, has_ios: hasIOS, source },
+  });
 
   return NextResponse.json({ ok: true }, { status: 201 });
 }

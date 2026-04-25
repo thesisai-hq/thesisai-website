@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import posthog from 'posthog-js';
 import { WatchlistTable } from '../../../components/WatchlistTable';
 import { WatchlistSummaryCard } from '../../../components/WatchlistSummaryCard';
 import { WatchlistStockCard } from '../../../components/WatchlistStockCard';
@@ -72,6 +73,7 @@ export default function WatchlistPage() {
     setCreating(true);
     try {
       await createWatchlist(user.id, 'My Watchlist');
+      posthog.capture('watchlist_created', { name: 'My Watchlist' });
       await load();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to create');

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import posthog from 'posthog-js';
 import { useAuth } from '../../../context/AuthContext';
 // (auth) group — no sidebar/header wrapper
 
@@ -21,9 +22,12 @@ export default function SignUpPage() {
     if (password.length < 8) { setError('Password must be at least 8 characters'); return; }
     try {
       await signUp(email, password);
+      posthog.identify(email.trim().toLowerCase(), { email: email.trim().toLowerCase() });
+      posthog.capture('user_signed_up', { email: email.trim().toLowerCase() });
       router.replace('/dashboard');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Sign up failed');
+      posthog.captureException(err);
     }
   }
 

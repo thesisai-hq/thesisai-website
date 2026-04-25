@@ -1,6 +1,7 @@
 'use client';
 
 import { FormEvent, useState } from 'react';
+import posthog from 'posthog-js';
 import { trackWebEvent } from './track';
 
 interface WaitlistFormProps {
@@ -52,6 +53,11 @@ export default function WaitlistForm({ source }: WaitlistFormProps) {
       trackWebEvent('waitlist_submit', {
         source,
         hasIOS,
+      });
+      posthog.capture('waitlist_submitted', {
+        source,
+        has_ios: hasIOS,
+        email: cleanEmail,
       });
 
       setSubmitted(true);
