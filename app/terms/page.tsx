@@ -117,8 +117,102 @@ export default function TermsPage() {
             </ol>
           </nav>
 
-          {/* Sections — content added in next tasks */}
+          {/* Sections */}
           <div style={{ flex: 1, minWidth: 0 }}>
+
+            <section id="acceptance" style={{ marginBottom: '2.5rem' }}>
+              <h2 style={{ fontSize: '1.15rem', marginBottom: '0.75rem' }}>1. Acceptance of Terms</h2>
+              <p style={{ color: 'var(--muted)', lineHeight: 1.7, margin: 0 }}>
+                By accessing or using the Thesis AI website, Thesis AI Platform, or Long Hold iOS app
+                (collectively, the &ldquo;Services&rdquo;), you agree to be bound by these Terms of
+                Service (&ldquo;Terms&rdquo;). If you do not agree to these Terms, do not use the
+                Services. These Terms apply to all users, including visitors, registered users, and
+                subscribers.
+              </p>
+            </section>
+
+            <section id="services" style={{ marginBottom: '2.5rem' }}>
+              <h2 style={{ fontSize: '1.15rem', marginBottom: '0.75rem' }}>
+                2. Description of Services
+              </h2>
+              <p style={{ color: 'var(--muted)', lineHeight: 1.7, marginBottom: '0.75rem' }}>
+                Thesis AI, Inc. (&ldquo;Thesis AI,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or
+                &ldquo;our&rdquo;) operates two products:
+              </p>
+              <ul style={{ paddingLeft: '1.25rem', color: 'var(--muted)', lineHeight: 1.7 }}>
+                <li style={{ marginBottom: '0.5rem' }}>
+                  <strong style={{ color: 'var(--text)' }}>Thesis AI Platform</strong> — a web and
+                  iOS application that uses AI to synthesize investment research from macro data,
+                  fundamentals, news, and price action into a clear, portfolio-aware thesis.
+                </li>
+                <li>
+                  <strong style={{ color: 'var(--text)' }}>Long Hold</strong> — an iOS app for
+                  tracking investment contributions, building savings discipline, and visualizing
+                  long-term compound growth.
+                </li>
+              </ul>
+              <p style={{ color: 'var(--muted)', lineHeight: 1.7, marginTop: '0.75rem', margin: 0 }}>
+                Each product may be subject to the additional product-specific terms described below.
+              </p>
+            </section>
+
+            <section id="platform-beta" style={{ marginBottom: '2.5rem' }}>
+              <h2 style={{ fontSize: '1.15rem', marginBottom: '0.75rem' }}>
+                3. Thesis AI Platform — Beta Terms
+              </h2>
+              <p style={{ color: 'var(--muted)', lineHeight: 1.7, marginBottom: '0.75rem' }}>
+                The Thesis AI Platform is currently in private beta and available by invitation only.
+                During the beta period:
+              </p>
+              <ul style={{ paddingLeft: '1.25rem', color: 'var(--muted)', lineHeight: 1.7 }}>
+                <li style={{ marginBottom: '0.5rem' }}>
+                  Access may be modified, suspended, or discontinued at any time without notice.
+                </li>
+                <li style={{ marginBottom: '0.5rem' }}>
+                  We do not guarantee uptime, availability, or data persistence.
+                </li>
+                <li style={{ marginBottom: '0.5rem' }}>
+                  Features, outputs, and pricing are subject to change before general release.
+                </li>
+                <li>
+                  Beta access does not create any obligation for Thesis AI to provide a
+                  production-ready service or any specific functionality.
+                </li>
+              </ul>
+            </section>
+
+            <section id="long-hold-billing" style={{ marginBottom: '2.5rem' }}>
+              <h2 style={{ fontSize: '1.15rem', marginBottom: '0.75rem' }}>
+                4. Long Hold — App Store Billing
+              </h2>
+              <p style={{ color: 'var(--muted)', lineHeight: 1.7, marginBottom: '0.75rem' }}>
+                Long Hold Pro subscriptions are purchased and managed exclusively through
+                Apple&apos;s App Store. By subscribing:
+              </p>
+              <ul style={{ paddingLeft: '1.25rem', color: 'var(--muted)', lineHeight: 1.7 }}>
+                <li style={{ marginBottom: '0.5rem' }}>
+                  All billing, renewals, and refunds are handled by Apple and governed by
+                  Apple&apos;s{' '}
+                  <a
+                    href="https://www.apple.com/legal/internet-services/itunes/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: 'var(--accent)' }}
+                  >
+                    Media Services Terms and Conditions
+                  </a>
+                  .
+                </li>
+                <li style={{ marginBottom: '0.5rem' }}>
+                  Thesis AI does not process or store payment information.
+                </li>
+                <li>
+                  To cancel or manage your subscription, use your Apple ID account settings.
+                  Thesis AI cannot issue refunds for App Store purchases.
+                </li>
+              </ul>
+            </section>
+
           </div>
         </div>
       </div>
