@@ -15,3 +15,6 @@ tsconfig.tsbuildinfo
 
 # OS
 .DS_Store
+
+# Superpowers brainstorming sessions
+.superpowers/
