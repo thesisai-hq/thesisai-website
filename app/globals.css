@@ -1629,3 +1629,12 @@ section > h2 {
     gap: 0.6rem;
   }
 }
+
+/* ─────────────────────────────────────────
+   Terms of Service — TOC sidebar
+──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .tos-sidebar {
+    display: none;
+  }
+}

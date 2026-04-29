@@ -55,6 +55,74 @@ export default function TermsPage() {
         </div>
       </div>
 
+      {/* Content */}
+      <div className="section-wrap" style={{ padding: '3rem 0 5rem' }}>
+        <p
+          style={{
+            fontSize: '0.82rem',
+            color: 'var(--muted)',
+            marginBottom: '2.5rem',
+            paddingBottom: '1.5rem',
+            borderBottom: '1px solid var(--glass-border)',
+          }}
+        >
+          Effective date: April 28, 2026 &nbsp;·&nbsp; Last updated: April 28, 2026 &nbsp;·&nbsp;
+          Thesis AI, Inc.
+        </p>
+
+        <div style={{ display: 'flex', gap: '3rem', alignItems: 'flex-start' }}>
+          {/* Sticky TOC */}
+          <nav
+            className="tos-sidebar"
+            style={{
+              position: 'sticky',
+              top: '2rem',
+              width: '200px',
+              flexShrink: 0,
+              background: 'var(--bg-mid)',
+              border: '1px solid var(--border)',
+              borderRadius: '0.75rem',
+              padding: '1rem',
+            }}
+          >
+            <p
+              style={{
+                fontSize: '0.68rem',
+                fontWeight: 700,
+                textTransform: 'uppercase',
+                letterSpacing: '0.1em',
+                color: 'var(--muted)',
+                marginBottom: '0.75rem',
+              }}
+            >
+              Contents
+            </p>
+            <ol style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+              {tocSections.map((s) => (
+                <li key={s.id} style={{ marginBottom: '0.35rem' }}>
+                  <a
+                    href={`#${s.id}`}
+                    style={{
+                      fontSize: '0.75rem',
+                      color: 'var(--muted)',
+                      textDecoration: 'none',
+                      lineHeight: 1.4,
+                      display: 'block',
+                    }}
+                  >
+                    {s.label}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+
+          {/* Sections — content added in next tasks */}
+          <div style={{ flex: 1, minWidth: 0 }}>
+          </div>
+        </div>
+      </div>
+
       {/* Footer */}
       <footer className="footer section-wrap">
         <p>© {new Date().getFullYear()} Thesis AI</p>
