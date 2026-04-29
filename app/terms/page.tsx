@@ -328,6 +328,98 @@ export default function TermsPage() {
               </p>
             </section>
 
+            <section id="privacy" style={{ marginBottom: '2.5rem' }}>
+              <h2 style={{ fontSize: '1.15rem', marginBottom: '0.75rem' }}>10. Privacy</h2>
+              <p style={{ color: 'var(--muted)', lineHeight: 1.7, margin: 0 }}>
+                Our collection and use of personal information is governed by our{' '}
+                <a href="/privacy" style={{ color: 'var(--accent)' }}>
+                  Privacy Policy
+                </a>
+                . By using the Services, you consent to the data practices described in the Privacy
+                Policy.
+              </p>
+            </section>
+
+            <section id="disclaimers" style={{ marginBottom: '2.5rem' }}>
+              <h2 style={{ fontSize: '1.15rem', marginBottom: '0.75rem' }}>11. Disclaimers</h2>
+              <p style={{ color: 'var(--muted)', lineHeight: 1.7, margin: 0 }}>
+                THE SERVICES ARE PROVIDED &ldquo;AS IS&rdquo; AND &ldquo;AS AVAILABLE&rdquo; WITHOUT
+                WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY,
+                FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE
+                SERVICES WILL BE UNINTERRUPTED, ERROR-FREE, SECURE, OR FREE OF VIRUSES OR OTHER
+                HARMFUL COMPONENTS.
+              </p>
+            </section>
+
+            <section id="liability" style={{ marginBottom: '2.5rem' }}>
+              <h2 style={{ fontSize: '1.15rem', marginBottom: '0.75rem' }}>
+                12. Limitation of Liability
+              </h2>
+              <p style={{ color: 'var(--muted)', lineHeight: 1.7, marginBottom: '0.75rem' }}>
+                TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THESIS AI&apos;S TOTAL LIABILITY
+                TO YOU FOR ANY CLAIMS ARISING FROM OR RELATED TO THE SERVICES SHALL NOT EXCEED THE
+                GREATER OF (A) THE AMOUNTS YOU PAID TO THESIS AI IN THE TWELVE MONTHS PRECEDING THE
+                CLAIM OR (B) ONE HUNDRED DOLLARS ($100).
+              </p>
+              <p style={{ color: 'var(--muted)', lineHeight: 1.7, margin: 0 }}>
+                IN NO EVENT SHALL THESIS AI BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL,
+                CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, INCLUDING LOSS OF PROFITS, DATA, OR
+                GOODWILL, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+              </p>
+            </section>
+
+            <section id="indemnification" style={{ marginBottom: '2.5rem' }}>
+              <h2 style={{ fontSize: '1.15rem', marginBottom: '0.75rem' }}>13. Indemnification</h2>
+              <p style={{ color: 'var(--muted)', lineHeight: 1.7, margin: 0 }}>
+                You agree to indemnify, defend, and hold harmless Thesis AI and its officers,
+                directors, employees, and agents from any claims, damages, losses, liabilities, or
+                expenses (including reasonable attorneys&apos; fees) arising from your use of the
+                Services, your violation of these Terms, or your infringement of any third-party
+                rights.
+              </p>
+            </section>
+
+            <section id="changes" style={{ marginBottom: '2.5rem' }}>
+              <h2 style={{ fontSize: '1.15rem', marginBottom: '0.75rem' }}>14. Changes to Terms</h2>
+              <p style={{ color: 'var(--muted)', lineHeight: 1.7, margin: 0 }}>
+                We may update these Terms at any time. If we make material changes, we will notify
+                you by email or through the Services at least 14 days before the changes take
+                effect. Continued use of the Services after the effective date constitutes acceptance
+                of the updated Terms. The current effective date is always shown at the top of this
+                page.
+              </p>
+            </section>
+
+            <section id="governing-law" style={{ marginBottom: '2.5rem' }}>
+              <h2 style={{ fontSize: '1.15rem', marginBottom: '0.75rem' }}>15. Governing Law</h2>
+              <p style={{ color: 'var(--muted)', lineHeight: 1.7, marginBottom: '0.75rem' }}>
+                These Terms are governed by the laws of the State of California, without regard to
+                its conflict-of-law principles. Any disputes arising from or relating to these Terms
+                or the Services shall be resolved exclusively in the state or federal courts located
+                in Santa Clara County, California, and you consent to personal jurisdiction in those
+                courts.
+              </p>
+              <p style={{ color: 'var(--muted)', lineHeight: 1.7, margin: 0 }}>
+                Before initiating any formal legal proceeding, both parties agree to attempt
+                resolution informally by contacting{' '}
+                <a href="mailto:hello@thesisai.app" style={{ color: 'var(--accent)' }}>
+                  hello@thesisai.app
+                </a>{' '}
+                and giving the other party 30 days to respond.
+              </p>
+            </section>
+
+            <section id="contact">
+              <h2 style={{ fontSize: '1.15rem', marginBottom: '0.75rem' }}>16. Contact</h2>
+              <p style={{ color: 'var(--muted)', lineHeight: 1.7, margin: 0 }}>
+                Questions about these Terms? Reach us at{' '}
+                <a href="mailto:hello@thesisai.app" style={{ color: 'var(--accent)' }}>
+                  hello@thesisai.app
+                </a>
+                .
+              </p>
+            </section>
+
           </div>
         </div>
       </div>
