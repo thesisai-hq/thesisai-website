@@ -213,6 +213,121 @@ export default function TermsPage() {
               </ul>
             </section>
 
+            <section id="accounts" style={{ marginBottom: '2.5rem' }}>
+              <h2 style={{ fontSize: '1.15rem', marginBottom: '0.75rem' }}>5. Accounts</h2>
+              <p style={{ color: 'var(--muted)', lineHeight: 1.7, marginBottom: '0.75rem' }}>
+                To access certain features you must create an account using accurate, complete
+                information. You are responsible for:
+              </p>
+              <ul style={{ paddingLeft: '1.25rem', color: 'var(--muted)', lineHeight: 1.7 }}>
+                <li style={{ marginBottom: '0.5rem' }}>
+                  Maintaining the confidentiality of your credentials.
+                </li>
+                <li style={{ marginBottom: '0.5rem' }}>
+                  All activity that occurs under your account.
+                </li>
+                <li>
+                  Notifying us immediately at{' '}
+                  <a href="mailto:hello@thesisai.app" style={{ color: 'var(--accent)' }}>
+                    hello@thesisai.app
+                  </a>{' '}
+                  if you suspect unauthorized access.
+                </li>
+              </ul>
+              <p style={{ color: 'var(--muted)', lineHeight: 1.7, marginTop: '0.75rem', margin: 0 }}>
+                We reserve the right to suspend or terminate accounts that violate these Terms or
+                that we reasonably believe pose a risk to Thesis AI or other users.
+              </p>
+            </section>
+
+            <section id="acceptable-use" style={{ marginBottom: '2.5rem' }}>
+              <h2 style={{ fontSize: '1.15rem', marginBottom: '0.75rem' }}>6. Acceptable Use</h2>
+              <p style={{ color: 'var(--muted)', lineHeight: 1.7, marginBottom: '0.75rem' }}>
+                You agree not to:
+              </p>
+              <ul style={{ paddingLeft: '1.25rem', color: 'var(--muted)', lineHeight: 1.7 }}>
+                <li style={{ marginBottom: '0.5rem' }}>
+                  Use the Services for any unlawful purpose or in violation of any applicable law.
+                </li>
+                <li style={{ marginBottom: '0.5rem' }}>
+                  Scrape, crawl, or programmatically extract data from the Services without prior
+                  written permission.
+                </li>
+                <li style={{ marginBottom: '0.5rem' }}>
+                  Attempt to gain unauthorized access to any part of the Services or their
+                  underlying infrastructure.
+                </li>
+                <li style={{ marginBottom: '0.5rem' }}>
+                  Impersonate any person, entity, or Thesis AI employee.
+                </li>
+                <li style={{ marginBottom: '0.5rem' }}>
+                  Upload or transmit malicious code, viruses, or any software intended to damage
+                  the Services.
+                </li>
+                <li>
+                  Interfere with or disrupt the integrity or performance of the Services.
+                </li>
+              </ul>
+            </section>
+
+            <section id="ip" style={{ marginBottom: '2.5rem' }}>
+              <h2 style={{ fontSize: '1.15rem', marginBottom: '0.75rem' }}>
+                7. Intellectual Property
+              </h2>
+              <p style={{ color: 'var(--muted)', lineHeight: 1.7, marginBottom: '0.75rem' }}>
+                The Services — including all software, design, text, and AI-generated outputs — are
+                owned by Thesis AI and protected by applicable intellectual property laws. You retain
+                ownership of any personal data you submit.
+              </p>
+              <p style={{ color: 'var(--muted)', lineHeight: 1.7, margin: 0 }}>
+                AI-generated research outputs are licensed to you for personal, non-commercial use
+                only. You may not redistribute, resell, or publish outputs without prior written
+                consent from Thesis AI.
+              </p>
+            </section>
+
+            <section id="not-financial-advice" style={{ marginBottom: '2.5rem' }}>
+              <h2 style={{ fontSize: '1.15rem', marginBottom: '0.75rem' }}>
+                8. Not Financial Advice
+              </h2>
+              <p
+                style={{
+                  color: 'var(--text)',
+                  lineHeight: 1.7,
+                  marginBottom: '0.75rem',
+                  fontWeight: 600,
+                }}
+              >
+                THE THESIS AI PLATFORM PROVIDES RESEARCH ASSISTANCE AND INFORMATIONAL CONTENT ONLY.
+              </p>
+              <p style={{ color: 'var(--muted)', lineHeight: 1.7, marginBottom: '0.75rem' }}>
+                Nothing on the Platform constitutes personalized investment advice, a recommendation
+                to buy or sell any security, or the provision of investment advisory services. Thesis
+                AI is not a registered investment adviser under the Investment Advisers Act of 1940
+                or any state law.
+              </p>
+              <p style={{ color: 'var(--muted)', lineHeight: 1.7, margin: 0 }}>
+                Always consult a qualified financial professional before making any investment
+                decision. Past performance of any security or strategy discussed on the Platform
+                does not guarantee future results.
+              </p>
+            </section>
+
+            <section id="ai-content" style={{ marginBottom: '2.5rem' }}>
+              <h2 style={{ fontSize: '1.15rem', marginBottom: '0.75rem' }}>
+                9. AI-Generated Content
+              </h2>
+              <p style={{ color: 'var(--muted)', lineHeight: 1.7, marginBottom: '0.75rem' }}>
+                Research outputs on the Thesis AI Platform are generated by AI models. Thesis AI
+                does not guarantee the accuracy, completeness, timeliness, or fitness for any
+                purpose of AI-generated content. Outputs may be incomplete, outdated, or incorrect.
+              </p>
+              <p style={{ color: 'var(--muted)', lineHeight: 1.7, margin: 0 }}>
+                You assume full responsibility for evaluating AI-generated content and for any
+                investment decisions you make based on it.
+              </p>
+            </section>
+
           </div>
         </div>
       </div>
