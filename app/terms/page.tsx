@@ -228,8 +228,8 @@ export default function TermsPage() {
                 </li>
                 <li>
                   Notifying us immediately at{' '}
-                  <a href="mailto:hello@thesisai.app" style={{ color: 'var(--accent)' }}>
-                    hello@thesisai.app
+                  <a href="mailto:support@thesisai.app" style={{ color: 'var(--accent)' }}>
+                    support@thesisai.app
                   </a>{' '}
                   if you suspect unauthorized access.
                 </li>
@@ -402,8 +402,8 @@ export default function TermsPage() {
               <p style={{ color: 'var(--muted)', lineHeight: 1.7, margin: 0 }}>
                 Before initiating any formal legal proceeding, both parties agree to attempt
                 resolution informally by contacting{' '}
-                <a href="mailto:hello@thesisai.app" style={{ color: 'var(--accent)' }}>
-                  hello@thesisai.app
+                <a href="mailto:support@thesisai.app" style={{ color: 'var(--accent)' }}>
+                  support@thesisai.app
                 </a>{' '}
                 and giving the other party 30 days to respond.
               </p>
@@ -413,8 +413,8 @@ export default function TermsPage() {
               <h2 style={{ fontSize: '1.15rem', marginBottom: '0.75rem' }}>16. Contact</h2>
               <p style={{ color: 'var(--muted)', lineHeight: 1.7, margin: 0 }}>
                 Questions about these Terms? Reach us at{' '}
-                <a href="mailto:hello@thesisai.app" style={{ color: 'var(--accent)' }}>
-                  hello@thesisai.app
+                <a href="mailto:support@thesisai.app" style={{ color: 'var(--accent)' }}>
+                  support@thesisai.app
                 </a>
                 .
               </p>
@@ -431,7 +431,7 @@ export default function TermsPage() {
           <a href="/docs">Docs</a>
           <a href="/privacy">Privacy</a>
           <a href="/terms">Terms</a>
-          <a href="mailto:hello@thesisai.app">Contact</a>
+          <a href="mailto:support@thesisai.app">Contact</a>
         </nav>
       </footer>
     </main>
