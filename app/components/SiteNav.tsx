@@ -24,7 +24,7 @@ export default function SiteNav() {
       <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
         {/* Products dropdown */}
         <div
-          style={{ position: 'relative' }}
+          style={{ position: 'relative', paddingBottom: '8px' }}
           onMouseEnter={() => setOpen(true)}
           onMouseLeave={() => setOpen(false)}
         >
@@ -64,7 +64,6 @@ export default function SiteNav() {
                 top: '100%',
                 left: '50%',
                 transform: 'translateX(-50%)',
-                marginTop: '8px',
                 background: 'var(--bg-soft)',
                 border: '1px solid var(--border)',
                 borderRadius: '12px',
